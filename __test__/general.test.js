@@ -1,5 +1,20 @@
 const general = require('../src/general');
 
+beforeAll(()=> {
+
+});
+
+beforeEach(()=> {
+
+});
+
+afterEach(() => {
+
+});
+
+afterAll(() => {
+
+}, 1000);
 
 describe('General', () => {
   describe('Sum', () => {
