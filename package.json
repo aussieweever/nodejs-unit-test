@@ -1,0 +1,22 @@
+{
+  "name": "mochatest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive -w ./test/",
+    "jtest": "jest --verbose ./__test__/",
+    "jtest-coverage": "jest --coverage ./__test__/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "jest": "^24.8.0",
+    "mocha": "^6.1.4",
+    "mocha-param": "^2.0.0",
+    "sinon": "^7.3.2"
+  }
+}
