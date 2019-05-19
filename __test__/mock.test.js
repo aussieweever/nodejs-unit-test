@@ -12,18 +12,17 @@ describe('Mock', () => {
     });
 
     it('should know the user is not an admin', async () => {
-      external.getUserById = jest.fn(() => new Promise((resolve, reject) => resolve({
+      external.getUserById = jest.fn().mockResolvedValue({
         isAdmin: false
-      })));
+      });
 
-      const result = await mock.isUserAdmin(1).then((result) => expect(result).toBeFalsy());
+      await mock.isUserAdmin(1).then((result) => expect(result).toBeFalsy());
     });
 
     it('should throw error when external call failed', async () => {
-      external.getUserById = () => new Promise((resolve, reject) => reject(new Error('Network timeout')));      
+      external.getUserById = jest.fn().mockRejectedValue(new Error('Network timeout'));      
       // mock.isUserAdmin(1).catch((err) => {
       //   expect(result).toMatch('Network timeout');
-      //   done();
       // });
       await expect(mock.isUserAdmin(1)).rejects.toThrow('Network timeout');
     });
